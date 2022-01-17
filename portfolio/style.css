@@ -432,10 +432,19 @@ h1, h2 {
     margin-top: 75px;
 }
 
+.contacts-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 450px;
+    height: 645px;
+    gap: 20px;
+}
+
 .title-frame-contacts {
     display: flex;
     width: 400px;
-    padding-top: 44px;
+    padding-top: 30px;
     padding-bottom: 18px;
 }
 
@@ -445,14 +454,13 @@ h1, h2 {
     font-size: 40px;
     line-height: 80px;
     color: var(--gold-portfolio);
-    width: 152px;
-    height: 80px;
+    height: 45px;
+    width: 425px;
     text-align: left;
-    width: 450px;
 }
 
 form {
-    margin-top: 20px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -463,7 +471,8 @@ form {
     border: 2px solid #BDAE82;
     border-radius: 0px;
     background: rgba(0, 0, 0, 0.5);
-    height: 50px;
+    height: 45px;
+    width: 425px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -486,7 +495,8 @@ input.email {
     border: 2px solid #BDAE82;
     border-radius: 0px;
     background: rgba(0, 0, 0, 0.5);
-    height: 50px;
+    height: 45px;
+    width: 425px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -511,7 +521,7 @@ textarea {
     border-radius: 0px;
     background: rgba(0, 0, 0, 0.5);
     height: 100px;
-    width: 450px;
+    width: 425px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -531,4 +541,121 @@ textarea {
     font-family: inherit;
     color: var(--gold-portfolio);
     font-size: 20px;
+}
+
+/*Footer*/
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.footer {
+    width: 1440px;
+    height: 115px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-decoration: none;
+}
+
+.footer .container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 7px;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.footer-data {
+    display: flex;
+    flex-direction: row;
+    width: 170px;
+    height: 50px;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+}
+
+.copy-right {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 50px;
+    color: var(--white-portfolio);
+}
+
+.year {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 50px;
+    color: var(--white-portfolio);
+}
+
+.github {
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 50px;
+    color: var(--white-portfolio);
+    transition: 0.5s;
+    text-decoration: none;
+}
+
+.RSS-footer {
+    text-decoration: none;
+    font-family: Inter;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 50px;
+    color: var(--white-portfolio);
+    width: 230px;
+    height: 50px;
+    text-align: right ;
+    padding-left: 35px;
+    transition: 0.5s;
+}
+
+.social_icon-footer {
+    display: flex;
+    width: 240px;
+    height: 50px;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-right: 0px;
+}
+
+.social-icons {
+    text-decoration: none;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.social-hetw {
+    text-decoration: none;
+}
+
+.social-pic {
+    transition: 0.5s;
+}
+
+.social-pic:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
+.RSS-footer:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
+}
+
+.github:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%) contrast(87%);
 }
