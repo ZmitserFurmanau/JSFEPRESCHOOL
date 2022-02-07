@@ -68,7 +68,7 @@ portfolioButtonsContainer.addEventListener('click', event => {
         const season = event.target.dataset.season;
         if (!activeButton) {
             portfolioImages.forEach(img => img.classList.add('smoothChanges'));
-            setTimeout(() => portfolioImages.forEach((img, index) => img.src =`./assets/img/${season}/${index + 1}.jpg`), 500);
+            setTimeout(() => portfolioImages.forEach((img, i) => img.src =`./assets/img/${season}/${i + 1}.jpg`), 500);
             setTimeout(() => portfolioImages.forEach(img => img.classList.remove('smoothChanges')), 750);
         }
     }
@@ -80,9 +80,9 @@ portfolioButtonsContainer.addEventListener('click', event => {
         const seasons = [];
         portfolioButtons.forEach(item => seasons.push(item.dataset.season));
         seasons.forEach((season) => {
-            for (let i = 1; i < 6; i++) {
+            for (let i = 0; i < 6; i++) {
                 const img = new Image();
-                img.src = `./assets/img/${season}/${i}.jpg`;
+                img.src = `./assets/img/${season}/${i + 1}.jpg`;
             }
         });
     }
@@ -137,20 +137,57 @@ themeSwitch.addEventListener('click', () => {
     return theme;
 });
 
-console.log(` Score: 85 / 85 \n
-1. Смена изображений в секции portfolio +25 \n
-    [x] при кликах по кнопкам Winter, Spring, Summer, Autumn в секции portfolio отображаются изображения из папки с соответствующим названием +20  \n
-    [x] кнопка, по которой кликнули, становится активной т.е. выделяется стилем. Другие кнопки при этом будут неактивными +5 \n 
-2. Перевод страницы на два языка +25 \n
-    [x] при клике по надписи ru англоязычная страница переводится на русский язык +10 \n
-    [x] при клике по надписи en русскоязычная страница переводится на английский язык +10 \n
-    [x] надписи en или ru, соответствующие текущему языку страницы, становятся активными т.е. выделяются стилем +5 \n
-3. Переключение светлой и тёмной темы +25 \n
-    [x] На страницу добавлен переключатель при клике по которому: \n
-      - тёмная тема приложения сменяется светлой +10 \n
-      - светлая тема приложения сменяется тёмной +10 \n
-      - после смены светлой и тёмной темы интерактивные элементы по-прежнему изменяют внешний вид при наведении и клике и при этом остаются видимыми на странице (нет ситуации с белым шрифтом на белом фоне) +5 \n
-4. Дополнительный функционал: \n
-    [x] выбранный пользователем язык отображения страницы и светлая или тёмная тема сохраняются при перезагрузке страницы +5 \n
-    [x] сложные эффекты для кнопок при наведении и/или клике +5 \n
+
+/*Video*/
+
+const video = document.querySelector('.section-video__video');
+const mainPlayButton = document.querySelector(".section-video__main-play");
+let currentTime = 0;
+export function handleClickOnVideo(){
+    if (video.paused){
+        video.play();
+        video.controls = true;
+        mainPlayButton.hidden = true;
+        video.addEventListener("pause", handlePauseVideo)
+        video.addEventListener("play", handlePlayVideo)
+        video.addEventListener("ended", handleEndedVideo)
+    }
+    function handlePauseVideo(){
+        mainPlayButton.hidden = false;
+    }
+    function handlePlayVideo(){
+        mainPlayButton.hidden = true;
+    }
+    function handleEndedVideo(){
+        video.controls = false;
+        mainPlayButton.hidden = false;
+        video.load()
+        video.removeEventListener("pause", handlePauseVideo)
+        video.removeEventListener("play", handlePlayVideo)
+        video.removeEventListener("ended", handleEndedVideo)
+    }
+}
+
+document.addEventListener("click", handlerClick)
+function handlerClick(event){
+    const target = event.target;
+    if(target.classList.contains("section-video__main-play")){
+        handleClickOnVideo();
+    }
+}
+
+console.log(` 
+Score: 60 / 60 \n
+1. Вёрстка +10 \n
+    [x] вёрстка видеоплеера: есть само видео, в панели управления есть кнопка Play/Pause, прогресс-бар, кнопка Volume/Mute, регулятор громкости звука +5  \n
+    [x] в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс +5 \n 
+2. Кнопка Play/Pause на панели управления +10 \n
+    [x] при клике по кнопке Play/Pause запускается или останавливается проигрывание видео +5 \n
+    [x] внешний вид и функционал кнопки изменяется в зависимости от того, проигрывается ли видео в данный момент +5 \n
+3. Прогресс-бар отображает прогресс проигрывания видео. При перемещении ползунка прогресс-бара вручную меняется текущее время проигрывания видео. Разный цвет прогресс-бара до и после ползунка +10 \n
+4. При перемещении ползунка регулятора громкости звука можно сделать звук громче или тише. Разный цвет регулятора громкости звука до и после ползунка +10 \n
+5. При клике по кнопке Volume/Mute можно включить или отключить звук. Одновременно с включением/выключением звука меняется внешний вид кнопки. Также внешний вид кнопки меняется, если звук включают или выключают перетягиванием регулятора громкости звука от нуля или до нуля +10 \n
+6. Кнопка Play/Pause в центре видео +10
+    [x] есть кнопка Play/Pause в центре видео при клике по которой запускается видео и отображается панель управления +5 \n
+    [x] когда видео проигрывается, кнопка Play/Pause в центре видео скрывается, когда видео останавливается, кнопка снова отображается +5 \n
 `);
