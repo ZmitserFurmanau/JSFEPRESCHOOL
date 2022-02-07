@@ -379,16 +379,43 @@ button:active {
     }
     
     /*Video*/
-    .video-player {
+    .section-video{
+        padding-top: 67px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .section-video__container-video{
+        margin-top: 3rem;
         position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .video-player-image {
-        max-width: 100%;
-        height: auto;
+    .section-video__video{
+        width: 100%;
+    }
+    
+    .section-video__main-play{
+        position: absolute;
+        background-image: url("./assets/svg/play_hover.svg");
+        background-repeat: no-repeat;
+        background-position: 0 center ;
+        width: 130px;
+        height: 130px;
+        z-index: 10;
+        transition: all .5s;
+        cursor: pointer;
+        -webkit-transition: all .5s;
+        -moz-transition: all .5s;
+        -ms-transition: all .5s;
+        -o-transition: all .5s;
+    }
+    
+    .section-video__main-play:hover{
+        filter: var(--filter-icon-hover);
+        -webkit-filter: var(--filter-icon-hover);
     }
 
     /*Price*/
@@ -770,38 +797,22 @@ body.light-theme,
         }
 
         /*Video*/
-        .video-player {
-            margin: 0 -63px 0;
-            position: relative;
+        .section-video{
+            padding-top: 100px;
+            padding-left: 0;
+            padding-right: 0;
+        }
+    
+        .section-video__container-video{
             overflow: hidden;
-            max-width: 812px;
-            height: 418px;
+            margin-top: 70px;
         }
-
-        .video-player-image {
-            position: absolute;
-            top: 48.68%;
-            left: 46.1%;
-            transform: translate(-40.77%, -48.59%);
-            width: 880px;
-            height: 418px;
-            object-fit: fill;
-        }
-
-        .video-player-button {
-            width: 65px;
-            height: 65px;
-            transform: translateX(19px);
-        }
-
-        .play-button-image {
-            width: 65px;
-            height: 65px;
-        }
-
-        .video-player-button:active {
-            width: 63px;
-            height: 63px;
+        
+        .section-video__main-play{
+    
+            width: 64.62px;
+            height: 64.62px;
+            background-size: 100% 100%;
         }
 
         /*Price*/
