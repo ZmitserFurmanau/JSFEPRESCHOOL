@@ -1,0 +1,72 @@
+*, 
+*::before, 
+*::after {
+    box-sizing: border-box;
+    background: #000;
+    padding: 0; 
+    margin: 0;
+}
+
+.no-cursor {
+    cursor: none;
+}
+
+.wrapper {
+    width: 100%;
+    background: #000;
+    display: block;
+    width: 1440px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: 0.5s;
+}
+
+p {
+    font-family: 'Montserrat';
+    color: #fff;
+}
+
+a:hover, 
+a:focus {
+    color: #bdae82;
+    outline: none;
+}
+
+footer 
+.container, 
+.social-list, 
+.git-link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer
+.container {
+    padding: 50px 20px;
+    font-style: normal;
+    font-size: 20px;
+    line-height: 50px;
+}
+
+.git-link {
+    gap: 20px;
+    padding-right: 17px;
+    margin: 0;
+}
+
+.social-logo {
+    display: block;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: 0.5s;
+}
+
+.social-logo:hover {
+    filter: invert(6%) sepia(12%) saturate(1156%) hue-rotate(338deg) brightness(80%) contrast(80%);
+}
