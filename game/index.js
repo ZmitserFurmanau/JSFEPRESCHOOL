@@ -1,6 +1,5 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
-let audio = new Audio("./assets/audio/sound.mp3");
 let x = canvas.width/2;
 let y = canvas.height-30;
 let dx = 8;
@@ -30,8 +29,8 @@ for (let c = 0; c < brickColumnCount; c++) {
     }
 }
 
-let music = new Audio("./assets/audio/music.ogg")
-music.play();
+let audio = new Audio("./assets/audio/sound.mp3");
+let music = new Audio("./assets/audio/music.ogg");
 music.loop = true;
 music.volume = 0.3;
 
@@ -128,6 +127,7 @@ function drawBricks() {
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    music.play();
     drawBricks();
     drawBall();
     drawPaddle();
