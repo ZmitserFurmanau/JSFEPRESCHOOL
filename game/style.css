@@ -15,7 +15,7 @@
     width: 100%;
     background: #000;
     display: block;
-    width: 1440px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0;
 }
@@ -69,4 +69,16 @@ footer
 
 .social-logo:hover {
     filter: invert(6%) sepia(12%) saturate(1156%) hue-rotate(338deg) brightness(80%) contrast(80%);
+}
+
+@media screen and (max-width: 1024px) {
+    .wrapper {
+        width: 1024px;
+    }
+    canvas {
+        width: 60%;
+    }
+    .container{
+        width: 60%;
+    }
 }
