@@ -1,5 +1,6 @@
 let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
+let audio = new Audio("./assets/audio/sound.mp3");
 let x = canvas.width/2;
 let y = canvas.height-30;
 let dx = 8;
@@ -13,7 +14,7 @@ let rightPressed = false;
 let leftPressed = false;
 let brickRowCount = 10;
 let brickColumnCount = 13;
-let brickWidth = 100;
+let brickWidth = 98;
 let brickHeight = 30;
 let brickPadding = 10;
 let brickOffsetTop = 100;
@@ -28,6 +29,11 @@ for (let c = 0; c < brickColumnCount; c++) {
         bricks[c][r] = { x: 0, y: 0, status: 1 };
     }
 }
+
+let music = new Audio("./assets/audio/music.ogg")
+music.play();
+music.loop = true;
+music.volume = 0.3;
 
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
@@ -67,6 +73,7 @@ function collisionDetection() {
                     dy = -dy;
                     b.status = 0;
                     score++;
+                    audio.play();
                 }
             }
         }
@@ -149,6 +156,10 @@ function draw() {
                 paddleX = (canvas.width-paddleWidth)/2;
             }
         }
+    } else if (score === brickRowCount * brickColumnCount ) {
+        score++;
+        alert("You Won");
+        document.location.reload();
     }
 
     if (rightPressed && paddleX < canvas.width-paddleWidth) {
@@ -159,7 +170,21 @@ function draw() {
 
     x += dx;
     y += dy;
+
     requestAnimationFrame(draw);
 }
 
 draw();
+
+console.log(`
+Score: 50 / 60 \n
+1. Вёрстка +10 \n
+    [x] реализован интерфейс игры +5 \n
+    [x] в футере приложения есть ссылка на гитхаб автора приложения, год создания приложения, логотип курса со ссылкой на курс +5 \n 
+2. Логика игры. Ходы, перемещения фигур, другие действия игрока подчиняются определённым свойственным игре правилам +10 \n
+3. Реализовано завершение игры при достижении игровой цели +10 \n
+4. По окончанию игры выводится её результат, например, количество ходов, время игры, набранные баллы, выигрыш или поражение и т.д +10 \n
+5. Результаты последних 10 игр сохраняются в local storage. Есть таблица рекордов, в которой сохраняются результаты предыдущих 10 игр 0 \n
+6. Анимации или звуки, или настройки игры. Баллы начисляются за любой из перечисленных пунктов +10 \n
+7. Очень высокое качество оформления приложения и/или дополнительный не предусмотренный в задании функционал, улучшающий качество приложения 0 \n
+`);
